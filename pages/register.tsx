@@ -1,11 +1,40 @@
-import { useState } from 'react'
+import { FormEvent, FormEventHandler, useState } from 'react'
 import type { NextPage } from 'next'
+import Link from 'next/link'
 // importing icons
 import  LinkedInIconWithText from "../public/assets/logo_with_text.svg"
-import Link from 'next/link'
+import {FcGoogle} from "react-icons/fc"
+
+
 
 const register:NextPage = () => {
     const [showPassword,setShowPassword]=useState(false)
+   const [formData,setFormData]=useState({email:"",userName:"",password:""})
+    const handleFormChange=(e:any)=>{
+        setFormData((preValue)=>{
+            return{
+                ...preValue,
+                [e.target.name]:e.target.value
+            }
+        })
+    }
+    const handleSubmit=(e:any)=>{
+        e.preventDefault()
+        fetch("/api/auth/signup",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(formData)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.status)
+            window.location.replace(`${window.location.origin}/`)
+        })
+        .catch(err=>console.log(err))
+    }
+
   return (
     <div className="h-screen flex flex-col items-center">
         {/* linkedin logo */}
@@ -16,24 +45,31 @@ const register:NextPage = () => {
         <p className="py-8 text-gray-600" style={{fontSize:"18px"}}>
             Join LinkedIn now &minus; it's free!
         </p>
-        <form className='px-3 flex flex-col max-w-md w-full  text-gray-500'>
+        <form 
+            className='px-3 flex flex-col max-w-md w-full  text-gray-500'
+            onSubmit={(e)=>handleSubmit(e)}
+            >
             <label 
-                htmlFor="emailOrNumber">
+                htmlFor="email">
                 Email or phone number
             </label>
-            <input 
+            <input
                 type="text" 
-                name="emailOrNumber" 
+                name="email" 
                 className="border border-gray-600 p-2 my-2 rounded-md outline-offset-2"
+                onChange={(e)=>handleFormChange(e)}
+                value={formData.email}
             />
             <label 
-                htmlFor="name">
+                htmlFor="userName">
                     Your Name
             </label>
             <input 
                 type="text" 
-                name="name" 
-                className="border border-gray-600 p-2 my-2 rounded-md outline-offset-2"  
+                name="userName" 
+                className="border border-gray-600 p-2 my-2 rounded-md outline-offset-2" 
+                onChange={(e)=>handleFormChange(e)}
+                value={formData.userName} 
             />
             <div 
             className="relative flex flex-col">
@@ -44,7 +80,10 @@ const register:NextPage = () => {
                 <input 
                 type={showPassword?"text":"password"} 
                 name="password" 
-                className="border border-gray-600 p-2 my-2 rounded-md outline-offset-2" />
+                className="border border-gray-600 p-2 my-2 rounded-md outline-offset-2"
+                onChange={(e)=>handleFormChange(e)}
+                value={formData.password}
+                 />
                     <span 
                     className="absolute px-2 bottom-[15px] right-0 z-10 cursor-pointer hover:underline"
                     onClick={()=>setShowPassword(!showPassword)}>
@@ -57,11 +96,14 @@ const register:NextPage = () => {
             >
                 Continue
             </button>
-        </form>
+            <button
+                className="my-2 py-3 w-full rounded-full flex justify-center items-center  text-gray-600 font-semibold border-gray-600 border hover:bg-primaryBg"
+                > <FcGoogle style={{margin:"0 16px",fontSize:"24px"}}/>  Sign in with Google</button>
+        </form >
         {/* link to sign in */}
         <p className="py-16">
             Already on LinkedIn? 
-            <Link href="/signin"> 
+            <Link href="/api/auth/signin"> 
             <a className="text-blue-600 font-semibold  hover:underline cursor-pointer">Sign In</a>
             </Link>
         </p>
