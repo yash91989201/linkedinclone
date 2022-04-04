@@ -57,7 +57,7 @@ const Header:NextPage = () => {
         <input className="bg-searchBoxBg py-1.5 pl-10 w-1/2  rounded-sm focus:border-none"  type="text" name="" id="" placeholder='Search' />
       </div>
       {/* user action buttons */}
-      <div className="space-x-3 md:space-x-6 p-2 flex items-center text-gray-600 text-lg">
+      <div className="space-x-3 md:space-x-6 p-2 flex items-center text-gray-700 text-lg">
         <p className="flex flex-col  items-center cursor-pointer"> <FaHome/>  <span className="hidden md:inline text-sm">Home</span> </p>
         <p className="flex flex-col  items-center cursor-pointer"> <IoMdPeople/> <span className="hidden md:inline text-sm">My Network</span>  </p>
         <p className="hidden md:flex md:flex-col  items-center cursor-pointer"> <BsFillBriefcaseFill/>  <span className="text-sm">My Jobs</span> </p>
@@ -70,8 +70,8 @@ const Header:NextPage = () => {
         <div className="relative pr-3 cursor-pointer">
           <input type="checkbox" className="checkbox" id="chk" />
           <label className="label" htmlFor="chk">
-            <IoMdSunny style={{paddingLeft:"2px",fontSize:"12px",color:"#f1c40f"}} />
             <IoIosMoon style={{paddingRight:"2px",fontSize:"12px",color:"#f1c40f"}} />
+            <IoMdSunny style={{paddingLeft:"2px",fontSize:"12px",color:"#f1c40f"}} />
             {/* <i className="fas fa-moon"></i>
             <i className="fas fa-sun"></i> */}
             <div className="ball"></div>

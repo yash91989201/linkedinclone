@@ -23,7 +23,7 @@ const Header:NextPage = () => {
           <p className="flex flex-col items-center mx-2"> <BsBriefcaseFill className="text-lg" /> Learning </p>
         </div>
         {/* signup button */}
-       <Link href="/signin">
+       <Link href="/api/auth/signin">
         <a className="
           px-5 py-2  border-blue-500 border rounded-full  text-blue-600 font-bold cursor-pointer
           hover:bg-blue-300/25

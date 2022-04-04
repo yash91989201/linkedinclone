@@ -1,10 +1,12 @@
 import type { NextPage } from "next"
+import { useSession } from "next-auth/react"
 // importing icons
 import {AiOutlinePlus} from "react-icons/ai"
 import {BsFillBookmarkFill} from "react-icons/bs"
 
 
 const Sidebar:NextPage = () => {
+    const {data}=useSession()
   return (
     //   sidebar wrapper
    <div className="w-full md:w-56" style={{position:"sticky"}}>
@@ -18,10 +20,10 @@ const Sidebar:NextPage = () => {
             {/* user details */}
             <div className="py-4 flex flex-col items-center text-center">
                 {/* user image */}
-                <img src="https://media-exp1.licdn.com/dms/image/D5635AQGZJZtiOZj--Q/profile-framedphoto-shrink_100_100/0/1645788063067?e=1648868400&v=beta&t=tUAaNccGSUf63bpD889BNM8_1MvMHCmKzFBm2C3vFEo" 
+                <img src={`https://avatars.dicebear.com/api/adventurer-neutral/${data?.userName}.svg` }
                 alt=""
-                className="mb-4 -mt-12 w-14 h-14 rounded-full border-white border-2 "
-                />
+                className="mb-4 -mt-10 w-14 h-14 rounded-full border-white border-2 "
+                />  
                 {/* user name */}
                 <h2 className="" >Yashraj Jaiswal</h2>
                 {/* user bio */}

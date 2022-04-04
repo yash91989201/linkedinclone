@@ -1,4 +1,7 @@
+import { FormEvent } from "react";
+import {useState} from "react"
 import type { NextPage } from 'next'
+import { useSession } from 'next-auth/react'
 import { Dispatch } from 'react';
 import {SetStateAction} from 'react'
 // import icons
@@ -9,8 +12,53 @@ type PostModalType={
     setPostModal:Dispatch<SetStateAction<boolean>>
 }
 
+
+
 const PostModal:NextPage<PostModalType> = ({postModal,setPostModal}:PostModalType) => {
-  return (
+    const {data}=useSession();
+    const [postData,setPostData]=useState({
+        message:"",
+        imageURL:""
+    })
+    const onFormChange=(e:any)=>{
+        setPostData((prevValue)=>{
+            return {
+                ...prevValue,
+                [e.target.name]:e.target.value
+            }
+        })
+    }
+    const onSubmitHandler=(e:FormEvent<HTMLFormElement>)=>{
+       
+        e.preventDefault()
+        fetch("/api/posts/",{
+            method:"POST",
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({
+                userId:data?.id,
+                userName:data?.userName,
+                userEmail:data?.user?.email,
+                message:postData.message,
+                imageURL:postData.imageURL})
+        })
+        .then(res=>res.json())
+        .then(postAction=>{
+            if(postAction.status)
+               { 
+                setPostData({
+                  
+                    message:"",
+                    imageURL:""
+                })
+                window.location.reload()
+                }
+        })
+        .catch(err=>alert(err))
+    }
+    return (
     //   modal overlay
     <div 
         className={`absolute w-screen h-screen bg-black/70 z-10 ${postModal?"flex justify-center items-center":"hidden"}`}>
@@ -27,23 +75,31 @@ const PostModal:NextPage<PostModalType> = ({postModal,setPostModal}:PostModalTyp
             {/* user details */}
             <div className="py-4 px-5 flex justify-start items-center ">
                 <img 
-                    src="https://media-exp1.licdn.com/dms/image/D5635AQGZJZtiOZj--Q/profile-framedphoto-shrink_100_100/0/1645788063067?e=1648868400&v=beta&t=tUAaNccGSUf63bpD889BNM8_1MvMHCmKzFBm2C3vFEo" 
+                   src={`https://avatars.dicebear.com/api/adventurer-neutral/${data?.userName}.svg`}
                     alt=""
                     className="w-12 h-12 rounded-full"
                 />
-                <p className="px-4">Yashraj Jaiswal</p>
+                <p className="px-4">{data?.userName as any}</p>
             </div>
-            <form className="px-4 w-full flex flex-col items-center">
+            <form 
+                className="px-4 w-full flex flex-col items-center"
+                onSubmit={(e)=>onSubmitHandler(e)}
+            >
                 <textarea 
-                name="" id="" 
+                name="message" id="" 
                 cols={24} rows={5} 
                 placeholder="What do you want to talk about ?"
                 className='w-full p-2 focus:outline-none resize-none placeholder:text-gray-500'
+                value={postData.message}
+                onChange={(e)=>onFormChange(e)}
                 />
                 <div className="m-2  w-full flex flex-col space-y-2  sm:flex-row">
                     <input 
-                    type="text" name="" id="" placeholder="Add a photo (optional)" 
-                    className="flex-1 p-2  placeholder:text-gray-500 focus:outline-none" />
+                    type="text" name="imageURL" id="" placeholder="Add a photo (optional)" 
+                    className="flex-1 p-2  placeholder:text-gray-500 focus:outline-none" 
+                    value={postData.imageURL}
+                    onChange={(e)=>onFormChange(e)}
+                    />
                     <button type="submit" className="py-2 sm:px-5 sm:py-2  rounded-full text-md text-gray-500 font-semibold bg-gray-200  hover:bg-blue-600 hover:text-white">Post</button>
                 </div>
             </form>
