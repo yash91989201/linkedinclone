@@ -25,22 +25,22 @@ const Sidebar:NextPage = () => {
                 className="mb-4 -mt-10 w-14 h-14 rounded-full border-white border-2 "
                 />  
                 {/* user name */}
-                <h2 className="" >Yashraj Jaiswal</h2>
+                <h2 className="" >{data?.userName as any}</h2>
                 {/* user bio */}
                 <h4 className="w-[90%] text-xs text-gray-500">Web Developer | Full Stack Developer | MERN Stack | RIMS Rourkela (BCA)</h4>
             </div>
             {/* profile statistics */}
             <div className="py-4 text-xs font-semibold  border-t">
-                <p className="px-4 flex justify-between hover:bg-primaryBg py-1 cursor-pointer" >Who viewed your profile <span className="mr-0 text-blue-600">72</span></p>
-                <p className="px-4 flex justify-between hover:bg-primaryBg py-1 cursor-pointer" >Views of your post <span className="mr-0 text-blue-600">160</span></p>
+                <p className="px-4 flex justify-between hover:bg-primaryBg py-1 cursor-pointer dark:hover:text-black" >Who viewed your profile <span className="mr-0 text-blue-600">72</span></p>
+                <p className="px-4 flex justify-between hover:bg-primaryBg py-1 cursor-pointer dark:hover:text-black" >Views of your post <span className="mr-0 text-blue-600">160</span></p>
             </div>
             {/* linkedin premium */}
-            <div className="p-4 text-xs border-t hover:bg-primaryBg cursor-pointer">
+            <div className="p-4 text-xs border-t hover:bg-primaryBg cursor-pointer dark:hover:text-black">
                 <p>Access exclusive tools an insights</p>
                 <p>Try premium for free</p>
             </div>
             {/* my items */}
-            <div className="p-4 text-xs border-t hover:bg-primaryBg cursor-pointer">
+            <div className="p-4 text-xs border-t hover:bg-primaryBg cursor-pointer dark:hover:text-black">
                 <p><BsFillBookmarkFill style={{display:"inline"}} />  My items</p>
             </div>
         </div>

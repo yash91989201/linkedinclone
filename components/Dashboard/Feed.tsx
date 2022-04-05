@@ -58,14 +58,14 @@ const Feed:NextPage<FeedProps> = ({setPostModal}:FeedProps) => {
       alt="" 
       className="w-12 h-12 rounded-full"
       />
-       <div className="w-[75%] sm:w-[85%]  py-3 px-2 sm:px-4 rounded-full border-2 bg-white dark:bg-primaryBgDark hover:bg-primaryBg cursor-pointer" onClick={()=>setPostModal(true)} >Start a post</div>
+       <div className="w-[75%] sm:w-[85%]  py-3 px-2 sm:px-4 rounded-full border-2 bg-white dark:bg-primaryBgDark hover:bg-primaryBg  cursor-pointer" onClick={()=>setPostModal(true)} >Start a post</div>
       </div>
       {/* post content list */}
       <div className="pt-1 pb-1 flex flex-wrap justify-between md:justify-evenly ld:justify-between">
-        <p className="p-2 rounded-sm space-x-2 flex justify-between items-center cursor-pointer hover:bg-primaryBg"> <MdPhotoSizeSelectActual style={{color:"#70b5f9"}}/>  <span>Photo</span></p>
-        <p className="p-2 rounded-sm space-x-2 flex justify-between items-center cursor-pointer hover:bg-primaryBg"> <FaVideo style={{color:"#7fc15e"}}/> <span>Video</span></p>
-        <p className="p-2 rounded-sm space-x-2 flex justify-between items-center cursor-pointer hover:bg-primaryBg"> <BsCalendarEventFill style={{color:"#e7a33e"}}/> <span>Event</span></p>
-        <p className="p-2 rounded-sm space-x-2 flex justify-between items-center cursor-pointer hover:bg-primaryBg"> <BsNewspaper style={{color:"#fc9295"}}/> <span>Write Article</span></p>
+        <p className="p-2 rounded-sm space-x-2 flex justify-between items-center cursor-pointer hover:bg-primaryBg dark:hover:text-black"> <MdPhotoSizeSelectActual style={{color:"#70b5f9"}}/>  <span>Photo</span></p>
+        <p className="p-2 rounded-sm space-x-2 flex justify-between items-center cursor-pointer hover:bg-primaryBg dark:hover:text-black"> <FaVideo style={{color:"#7fc15e"}}/> <span>Video</span></p>
+        <p className="p-2 rounded-sm space-x-2 flex justify-between items-center cursor-pointer hover:bg-primaryBg dark:hover:text-black"> <BsCalendarEventFill style={{color:"#e7a33e"}}/> <span>Event</span></p>
+        <p className="p-2 rounded-sm space-x-2 flex justify-between items-center cursor-pointer hover:bg-primaryBg dark:hover:text-black"> <BsNewspaper style={{color:"#fc9295"}}/> <span>Write Article</span></p>
       </div>
     </div>
     {/* horizontal divider */}
@@ -116,12 +116,12 @@ const Feed:NextPage<FeedProps> = ({setPostModal}:FeedProps) => {
           <Link href="/dashboard">
             <a 
             onClick={()=>likePostHandler(post._id)}  
-            className="flex flex-col items-center px-6 py-2 hover:bg-gray-200 rounded-md w-1/2 sm:w-5/12"> <AiOutlineLike/> <span>Like</span> </a>
+            className="flex flex-col items-center px-6 py-2 hover:bg-gray-200 hover:text-black  rounded-md w-1/2 sm:w-5/12"> <AiOutlineLike/> <span>Like</span> </a>
           </Link>
           <Link href="" >
             <a  
             onClick={()=>deletePostHandler(post._id)}
-            className="flex flex-col items-center px-6 py-2 hover:bg-gray-200 rounded-md w-1/2  sm:w-5/12"> <FaTrash/>  <span>Delete Post</span></a>
+            className="flex flex-col items-center px-6 py-2 hover:bg-gray-200 hover:text-black  rounded-md w-1/2  sm:w-5/12"> <FaTrash/>  <span>Delete Post</span></a>
           </Link>
         </div>
       </article> 
