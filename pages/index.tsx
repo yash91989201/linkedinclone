@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { useSession } from 'next-auth/react'
+
 import Head from 'next/head'
 
 // importing custom components
@@ -8,6 +9,7 @@ import ValueProposition from '../components/Home/ValueProposition'
 
 const Home: NextPage = () => {
   const {status}=useSession()
+
   if(status === "authenticated")
   window.location.replace(`${window.location.origin}/dashboard`)
   return (

@@ -25,7 +25,7 @@ const ValueProposition:NextPage = () => {
            {
                 ["Search for a job","Find a person you know","Learn a new skill"].map((item,index)=>(
                     <Link key={`${index}${item}`}  href="/">
-                        <a className=" px-2 py-4 sm:rounded-md w-full flex justify-between  bg-white">
+                        <a className=" px-2 py-4 sm:rounded-md w-full flex justify-between  bg-white text-black">
                             <span>{item}</span> 
                             <MdArrowForwardIos/>    
                         </a>

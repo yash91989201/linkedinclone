@@ -11,7 +11,7 @@ const Sidebar:NextPage = () => {
     //   sidebar wrapper
    <div className="w-full md:w-56" style={{position:"sticky"}}>
    {/* profile card */}
-    <div className="w-full bg-white rounded-lg overflow-hidden">
+    <div className="w-full bg-white  dark:bg-dashboardBgDark rounded-lg overflow-hidden">
         {/* banner image */}
         <div className="w-full h-14 bg-gray-400 ">
           <img className="w-full  h-full object-cover"  src="https://media-exp1.licdn.com/dms/image/C5616AQFlmKhPLrNkSg/profile-displaybackgroundimage-shrink_200_800/0/1648532052128?e=1654128000&v=beta&t=HVEHIRjnz3WiDzYwMMDVqlfuPB4qvsFCm4pO1r5guj0" alt="" /> 
@@ -45,7 +45,7 @@ const Sidebar:NextPage = () => {
             </div>
         </div>
     </div>
-    <div className="my-4 w-full hidden md:block  bg-white rounded-lg">
+    <div className="my-4 w-full hidden md:block  bg-white  dark:bg-dashboardBgDark  rounded-lg">
     <p className="px-4 py-1 text-blue-600 font-semibold hover:bg-primaryBg cursor-pointer">Groups</p>
     <p className="px-4 py-1 flex justify-between items-center text-blue-600 font-semibold hover:bg-primaryBg cursor-pointer">Events <AiOutlinePlus className="text-gray-700"/> </p>
     <p className="px-4 py-1 text-blue-600 font-semibold hover:bg-primaryBg cursor-pointer">Followed Hashtags</p>

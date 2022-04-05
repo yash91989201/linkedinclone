@@ -29,19 +29,18 @@ const signin:NextPage=  () => {
     return (
     <>
         {/* linkedin logo */}
-        <div className="p-6 px-16">
+        <div className="p-6 px-16 bg-white dark:bg-primaryBgDark">
         <LinkedInIconWithText />
         </div>
-        <div className="h-screen flex flex-col items-center">
-            <form className='p-4 pb-12 px-5 flex flex-col  max-w-sm  w-[90%] sm:w-full  text-gray-500 rounded-lg overflow-hidden'
+        <div className="h-screen flex flex-col items-center bg-white dark:bg-primaryBgDark">
+            <form className='p-4 pb-12 px-5 flex flex-col  max-w-sm  w-[90%] sm:w-full  text-gray-500 rounded-lg overflow-hidden bg-primaryBg dark:bg-dashboardBgDark'
             style={{
                 boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"
             }}
             onSubmit={(e)=>handleSubmit(e)}
             >
-                <h3 className="text-2xl text-black pt-4 pb-1" >SignIn</h3>
+                <h3 className="text-2xl text-black pt-4 pb-1 dark:text-white" >SignIn</h3>
                 <p className="text-sm pb-4 text-gray-600">Stay updated on your professional world</p>
-            
                 <input 
                     type="text" 
                     name="email" 
@@ -67,13 +66,21 @@ const signin:NextPage=  () => {
                 <button 
                     type="submit"
                     className="my-2 py-3 w-full rounded-full bg-blue-700 text-white font-semibold"
-                    // onClick={()=>signIn(provider.id)}
                 >
                     Continue
                 </button>
                 <button
-                className="my-2 py-3 w-full rounded-full flex justify-center items-center  text-gray-600 font-semibold border-gray-600 border hover:bg-primaryBg"
-                > <FcGoogle style={{margin:"0 16px",fontSize:"24px"}}/>  Sign in with Google</button>
+                type="button"
+                className="
+                    my-2 py-3 w-full rounded-full 
+                    flex justify-center items-center 
+                    text-gray-600 font-semibold border-gray-600 
+                    border hover:bg-primaryBg"
+                
+                > 
+                    <FcGoogle style={{margin:"0 16px",fontSize:"24px"}}/>
+                    Sign in with Google
+                </button>
             </form>
             {/* link to sign in */}
             <p className="py-16">

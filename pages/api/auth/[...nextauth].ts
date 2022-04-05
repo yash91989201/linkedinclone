@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { userSignIn } from "../../../db/utils/User";
-// import GoogleProvider from "next-auth/providers/google";
+import GoogleProvider from "next-auth/providers/google";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -38,6 +38,7 @@ export default NextAuth({
   jwt: {
     secret: process.env.JWT_SECRET!,
   },
+
   pages: {
     signIn: "/signin",
   },

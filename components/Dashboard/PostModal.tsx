@@ -62,7 +62,7 @@ const PostModal:NextPage<PostModalType> = ({postModal,setPostModal}:PostModalTyp
     //   modal overlay
     <div 
         className={`absolute w-screen h-screen bg-black/70 z-10 ${postModal?"flex justify-center items-center":"hidden"}`}>
-        <div className='mx-3 bg-white rounded-xl overflow-hidden' style={{width:"min(640px,100%)"}}>
+        <div className='mx-3 bg-white dark:bg-dashboardBgDark rounded-xl overflow-hidden' style={{width:"min(640px,100%)"}}>
             <p className='py-3 px-6   w-full flex justify-between items-center'>
                 <span className="text-xl">Create a post</span>
                 <span 
@@ -89,14 +89,14 @@ const PostModal:NextPage<PostModalType> = ({postModal,setPostModal}:PostModalTyp
                 name="message" id="" 
                 cols={24} rows={5} 
                 placeholder="What do you want to talk about ?"
-                className='w-full p-2 focus:outline-none resize-none placeholder:text-gray-500'
+                className='w-full p-2 focus:outline-none resize-none placeholder:text-gray-500 bg-white dark:bg-dashboardBgDark'
                 value={postData.message}
                 onChange={(e)=>onFormChange(e)}
                 />
                 <div className="m-2  w-full flex flex-col space-y-2  sm:flex-row">
                     <input 
                     type="text" name="imageURL" id="" placeholder="Add a photo (optional)" 
-                    className="flex-1 p-2  placeholder:text-gray-500 focus:outline-none" 
+                    className="flex-1 p-2  placeholder:text-gray-500 focus:outline-none bg-white dark:bg-dashboardBgDark" 
                     value={postData.imageURL}
                     onChange={(e)=>onFormChange(e)}
                     />

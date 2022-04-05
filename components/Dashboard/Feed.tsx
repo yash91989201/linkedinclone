@@ -51,14 +51,14 @@ const Feed:NextPage<FeedProps> = ({setPostModal}:FeedProps) => {
   return (
     <main className="w-full mx-auto  lg:w-[560px] flex-1">
     {/* add new post */}
-    <div className="w-full p-4 px-2 sm:py-4 mb-4  pb-0 flex flex-col rounded-lg border-2 overflow-hidden bg-white">
+    <div className="w-full p-4 px-2 sm:py-4 mb-4  pb-0 flex flex-col rounded-lg border-2 dark:border-black overflow-hidden bg-white dark:bg-dashboardBgDark">
       <div  className="w-full flex justify-around md:justify-evenly text-gray-600" >
       {/* user image */}
       <img  src={`https://avatars.dicebear.com/api/adventurer-neutral/${data?.userName}.svg`}
       alt="" 
       className="w-12 h-12 rounded-full"
       />
-       <div className="w-[75%] sm:w-[85%]  py-3 px-2 sm:px-4 rounded-full border-2 bg-white hover:bg-primaryBg cursor-pointer" onClick={()=>setPostModal(true)} >Start a post</div>
+       <div className="w-[75%] sm:w-[85%]  py-3 px-2 sm:px-4 rounded-full border-2 bg-white dark:bg-primaryBgDark hover:bg-primaryBg cursor-pointer" onClick={()=>setPostModal(true)} >Start a post</div>
       </div>
       {/* post content list */}
       <div className="pt-1 pb-1 flex flex-wrap justify-between md:justify-evenly ld:justify-between">
@@ -71,18 +71,18 @@ const Feed:NextPage<FeedProps> = ({setPostModal}:FeedProps) => {
     {/* horizontal divider */}
     <hr className="m-4 w-full mx-auto border-gray-300 border"/>
     {/* all posts */}
-    <div className="space-y-3 my-1  w-full" >
+    <div className="space-y-3 my-1 w-full" >
       {
         postData.length ==0 ?
-         <div className="w-full p-8 flex rounded-lg  bg-white overflow-hidden">
+         <div className="w-full p-8 flex rounded-lg  bg-white dark:bg-dashboardBgDark overflow-hidden">
            <p>No Posts to view</p>
          </div>
          :
          postData?.map(post=>(
           <article key={post._id}
-          className="w-full py-4 pb-0 flex flex-col justify-between overflow-hidden bg-white rounded-lg">
+          className="w-full py-4 pb-0 flex flex-col justify-between overflow-hidden bg-white dark:bg-dashboardBgDark rounded-lg">
         {/* user details and user action */}
-        <div  className="px-4 flex justify-between items-center"   >
+        <div  className="px-4 flex justify-between items-center">
             {/* user image */}
             <img 
               src={`https://avatars.dicebear.com/api/adventurer-neutral/${post.userName}.svg`}
@@ -107,7 +107,7 @@ const Feed:NextPage<FeedProps> = ({setPostModal}:FeedProps) => {
           {/* user post text */}
           <p className="px-4 py-5">{post.message}</p>
           {/* user post image */}
-          <img  className="w-full" src={post.imageURL} alt="" />
+          <img  className="w-full object-contain " src={post.imageURL} alt="" />
         </div>
         {/* user post action */}
         <hr className="mt-2 w-[95%] mx-auto border-gray-300 border"/>

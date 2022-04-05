@@ -5,6 +5,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     screens: {
       xs: "420px",
@@ -15,6 +16,8 @@ module.exports = {
         primaryBg: "var(--primary-bg)",
         dashboardBg: "var(--dashboard-bg)",
         searchBoxBg: "var(--searchBox-bg)",
+        primaryBgDark: "var(--primary-bg-dark)",
+        dashboardBgDark: "var(--dashboard-bg-dark)",
       },
     },
   },

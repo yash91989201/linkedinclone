@@ -2,11 +2,6 @@ import bcrypt from "bcryptjs";
 import connect from "../conn";
 import User from "../models/User";
 
-// interface SignUpDataType{
-// email:string;
-
-// }
-
 connect();
 
 // register new user
@@ -49,6 +44,7 @@ const userSignIn = async (userCredentials: any) => {
     // check in the database if similar email exists
     const userData = await User.findOne({ email });
     if (userData) {
+      // matched the password given by the user and the one that exists in database
       const isMatch = await bcrypt.compare(password, userData.password);
       if (isMatch)
         return {

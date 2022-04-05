@@ -6,7 +6,7 @@ const News = () => {
   return (
     <div className="lg:w-80 hidden xl:block ">
         {/* linkedin news */}
-        <div className="p-3 w-full  bg-white rounded-lg">
+        <div className="p-3 w-full  bg-white dark:bg-dashboardBgDark rounded-lg">
             <p className="flex justify-between items-center">
             <span>LinkedIn News</span>
             <AiFillInfoCircle className="text-lg"/>

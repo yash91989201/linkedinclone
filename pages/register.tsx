@@ -1,6 +1,7 @@
 import { FormEvent, FormEventHandler, useState } from 'react'
 import type { NextPage } from 'next'
 import Link from 'next/link'
+import { signIn } from 'next-auth/react'
 // importing icons
 import  LinkedInIconWithText from "../public/assets/logo_with_text.svg"
 import {FcGoogle} from "react-icons/fc"
@@ -97,8 +98,16 @@ const register:NextPage = () => {
                 Continue
             </button>
             <button
-                className="my-2 py-3 w-full rounded-full flex justify-center items-center  text-gray-600 font-semibold border-gray-600 border hover:bg-primaryBg"
-                > <FcGoogle style={{margin:"0 16px",fontSize:"24px"}}/>  Sign in with Google</button>
+            type='button'
+                className="
+                my-2 py-3 w-full rounded-full 
+                flex justify-center items-center 
+                 text-gray-600 font-semibold border-gray-600 
+                 border hover:bg-primaryBg"
+                >
+                     <FcGoogle style={{margin:"0 16px",fontSize:"24px"}}/>
+                       Sign in with Google
+                </button>
         </form >
         {/* link to sign in */}
         <p className="py-16">
