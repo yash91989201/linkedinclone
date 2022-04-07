@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { NextPage } from 'next'
+import { useRouter } from "next/router";
 // import { providers, signIn, getSession, csrfToken } from "next-auth/client";
 import {  signIn } from "next-auth/react";
 import Link from 'next/link'
@@ -8,6 +9,7 @@ import  LinkedInIconWithText from "../public/assets/logo_with_text.svg"
 import {FcGoogle} from "react-icons/fc"
 
 const signin:NextPage=  () => {
+    const {error}=useRouter().query;
     const [showPassword,setShowPassword]=useState(false)
     const [formData,setFormData]=useState({email:"",password:""})
     const handleFormChange=(e:any)=>{
@@ -29,11 +31,11 @@ const signin:NextPage=  () => {
     return (
     <>
         {/* linkedin logo */}
-        <div className="p-6 px-16 bg-white dark:bg-primaryBgDark">
+        <div className="py-8 max-w-sm w-[90%] lg:max-w-full mx-auto  bg-white dark:bg-primaryBgDark">
         <LinkedInIconWithText />
         </div>
         <div className="h-screen flex flex-col items-center bg-white dark:bg-primaryBgDark">
-            <form className='p-4 pb-12 px-5 flex flex-col  max-w-sm  w-[90%] sm:w-full  text-gray-500 rounded-lg overflow-hidden bg-primaryBg dark:bg-dashboardBgDark'
+            <form className='p-4 pb-12 px-5 flex flex-col  max-w-sm  w-[90%]   text-gray-500 rounded-lg overflow-hidden bg-primaryBg dark:bg-dashboardBgDark'
             style={{
                 boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"
             }}
@@ -62,6 +64,9 @@ const signin:NextPage=  () => {
                             Show
                         </span>
             </div>
+            {
+                error && <p className="py-2 text-red-600">Invalid Login credentials</p>
+            }
                         <p className="py-2 text-blue-600 font-semibold">Forgot Password?</p>
                 <button 
                     type="submit"

@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { userSignIn } from "../../../db/utils/User";
-import GoogleProvider from "next-auth/providers/google";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -32,12 +31,6 @@ export default NextAuth({
         session.userName = token?.userName;
       }
       return session;
-    },
-    redirect({ url, baseUrl }) {
-      if (url.startsWith(baseUrl)) return url;
-      // Allows relative callback URLs
-      else if (url.startsWith("/")) return new URL(url, baseUrl).toString();
-      return baseUrl;
     },
   },
   secret: process.env.SECRET,
