@@ -54,7 +54,7 @@ const register:NextPage = () => {
             >
             <label 
                 htmlFor="email">
-                Email or phone number
+                Email
             </label>
             <input
                 type="text" 
