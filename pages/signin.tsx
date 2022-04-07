@@ -31,7 +31,7 @@ const signin:NextPage=  () => {
     return (
     <>
         {/* linkedin logo */}
-       <div className="w-full">
+       <div className="w-full bg-white dark:bg-primaryBgDark">
        <div className="py-8 max-w-sm w-[90%] lg:max-w-full mx-auto  bg-white dark:bg-primaryBgDark">
         <LinkedInIconWithText />
         </div>

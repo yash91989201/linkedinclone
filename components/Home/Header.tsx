@@ -16,7 +16,7 @@ const Header:NextPage = () => {
           <LinkedInIconWithText  />
         </div>
         {/* icon-btn group wrapper */}
-        <div className="mx-6 hidden  sm:flex text-gray-600 ">
+        <div className="mx-6 hidden  sm:flex text-gray-600 dark:text-gray-100 ">
           <p className="flex flex-col items-center mx-2"> <FaCompass className="text-lg" /> Discover </p>
           <p className="flex flex-col items-center mx-2"> <BsFillPeopleFill className="text-lg" /> People </p>
           <p className="flex flex-col items-center mx-2"> <CgNotes className="text-lg" /> Learning </p>

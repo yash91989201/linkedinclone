@@ -15,7 +15,7 @@ const ValueProposition:NextPage = () => {
         {/* text content */}
         <div className="space-y-2 py-4 flex flex-col justify-center sm:px-8">
             {/* value proposition text  */}
-            <h2 className="max-w-sm py-3 px-4 sm:px-0 text-amber-800 " 
+            <h2 className="max-w-sm py-3 px-1 font-semibold sm:px-0 text-amber-700 dark:text-amber-400 " 
                 style={{
                     fontSize:"clamp(24px,6vw,2.25rem)"
                 }}
@@ -25,7 +25,7 @@ const ValueProposition:NextPage = () => {
            {
                 ["Search for a job","Find a person you know","Learn a new skill"].map((item,index)=>(
                     <Link key={`${index}${item}`}  href="/">
-                        <a className=" px-2 py-4 sm:rounded-md w-full flex justify-between  bg-white text-black">
+                        <a className=" px-2 py-4 rounded-md w-full flex justify-between  bg-primaryBg dark:bg-dashboardBgDark text-black dark:text-white">
                             <span>{item}</span> 
                             <MdArrowForwardIos/>    
                         </a>
