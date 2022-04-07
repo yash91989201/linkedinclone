@@ -116,13 +116,18 @@ const Feed:NextPage<FeedProps> = ({setPostModal}:FeedProps) => {
           <Link href="/dashboard">
             <a 
             onClick={()=>likePostHandler(post._id)}  
-            className="flex flex-col items-center px-6 py-2 hover:bg-gray-200 hover:text-black  rounded-md w-1/2 sm:w-5/12"> <AiOutlineLike/> <span>Like</span> </a>
+            className="flex flex-col items-center px-6 py-2 hover:bg-gray-200 hover:text-black  rounded-md w-1/2 sm:w-5/12"> <AiOutlineLike/> <span>Like</span>
+             </a>
           </Link>
+            {data?.id === post.userId ?
+            
           <Link href="" >
             <a  
             onClick={()=>deletePostHandler(post._id)}
-            className="flex flex-col items-center px-6 py-2 hover:bg-gray-200 hover:text-black  rounded-md w-1/2  sm:w-5/12"> <FaTrash/>  <span>Delete Post</span></a>
+            className="flex flex-col items-center px-6 py-2 hover:bg-gray-200 hover:text-black  rounded-md w-1/2  sm:w-5/12"> <FaTrash/>  <span>Delete Post</span>
+            </a>
           </Link>
+            :null}
         </div>
       </article> 
         ))

@@ -85,10 +85,12 @@ const Header:NextPage = () => {
         <span className="text-sm">Me</span>  </p>
         <p className="hidden md:flex md:flex-col  items-center cursor-pointer"> <CgMenuGridR/>  <span className="hidden md:inline text-sm">Work</span> </p>
         <div className="relative  cursor-pointer">
-          <input type="checkbox" className="checkbox" id="chk" onClick={(e:any)=>handleTheme(e.target.value)} />
+          <input type="checkbox" className="checkbox" id="chk" onChange={(e:any)=>handleTheme(e.target.value)} checked={theme==="dark"?true:false} />
           <label className="label" htmlFor="chk">
-              <IoIosMoon style={{marginLeft:"4px",fontSize:"8px",color:"#f1c40f"}} />
-              <IoMdSunny style={{marginRight:"4px",fontSize:"8px",color:"#f1c40f"}} />
+             <div className="px-0.5 w-full flex justify-between items-center">
+             <IoIosMoon style={{fontSize:"9px",color:"#f1c40f"}} />
+              <IoMdSunny style={{fontSize:"9px",color:"#f1c40f"}} />
+             </div>
             <div className="ball"></div>
           </label>
         </div>
