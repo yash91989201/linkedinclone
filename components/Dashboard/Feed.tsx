@@ -112,23 +112,25 @@ const Feed:NextPage<FeedProps> = ({setPostModal}:FeedProps) => {
         {/* user post action */}
         <hr className="mt-2 w-[95%] mx-auto border-gray-300 border"/>
         <p className="py-0.5 px-4 text-gray-600">{post.likes} likes</p>
-        <div className="flex justify-evenly py-2"   >
-          <Link href="/dashboard">
-            <a 
-            onClick={()=>likePostHandler(post._id)}  
-            className="flex flex-col items-center px-6 py-2 hover:bg-gray-200 hover:text-black  rounded-md w-1/2 sm:w-5/12"> <AiOutlineLike/> <span>Like</span>
-             </a>
-          </Link>
+        {/* <div className="flex justify-evenly py-2"   > */}
+         
             {data?.id === post.userId ?
             
           <Link href="" >
             <a  
             onClick={()=>deletePostHandler(post._id)}
-            className="flex flex-col items-center px-6 py-2 hover:bg-gray-200 hover:text-black  rounded-md w-1/2  sm:w-5/12"> <FaTrash/>  <span>Delete Post</span>
+            className="flex justify-center items-center mx-auto mt-2 px-6 py-3 hover:bg-gray-200 hover:text-black  rounded-md w-full "> <FaTrash style={{margin:"0 16px",fontSize:"18px"}}/>  <span>Delete Post</span>
             </a>
           </Link>
-            :null}
-        </div>
+            :
+            <Link href="/dashboard">
+            <a 
+            onClick={()=>likePostHandler(post._id)}  
+            className="flex justify-center items-center mx-auto mt-2 px-6 py-3 hover:bg-gray-200 hover:text-black  rounded-md w-full"> <AiOutlineLike style={{margin:"0 16px",fontSize:"24px"}}/> <span>Like</span>
+             </a>
+          </Link>
+            }
+        {/* </div> */}
       </article> 
         ))
       }

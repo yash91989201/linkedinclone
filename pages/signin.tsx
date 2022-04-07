@@ -49,7 +49,7 @@ const signin:NextPage=  () => {
                     type="text" 
                     name="email" 
                     className="border border-gray-600 p-3 my-2 rounded-md outline-offset-2"
-                    placeholder="Email or Phone"
+                    placeholder="Email"
                     onChange={(e)=>handleFormChange(e)}
                 />
                 <div 
