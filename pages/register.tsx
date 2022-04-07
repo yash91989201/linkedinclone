@@ -37,10 +37,12 @@ const register:NextPage = () => {
     }
 
   return (
-    <div className="h-screen flex flex-col items-center">
+    <div className="h-screen flex flex-col items-center bg-white dark:bg-dashboardBgDark">
         {/* linkedin logo */}
-        <div className="py-6">
-            <LinkedInIconWithText />
+        <div className="w-full bg-white dark:bg-dashboardBgDark">
+       <div className="py-8 max-w-sm w-[90%] lg:max-w-full mx-auto  bg-white dark:bg-dashboardBgDark">
+        <LinkedInIconWithText />
+        </div>
         </div>
         {/* text  */}
         <p className="py-8 text-gray-600" style={{fontSize:"18px"}}>
