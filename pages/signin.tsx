@@ -31,9 +31,11 @@ const signin:NextPage=  () => {
     return (
     <>
         {/* linkedin logo */}
-        <div className="py-8 max-w-sm w-[90%] lg:max-w-full mx-auto  bg-white dark:bg-primaryBgDark">
+       <div className="w-full">
+       <div className="py-8 max-w-sm w-[90%] lg:max-w-full mx-auto  bg-white dark:bg-primaryBgDark">
         <LinkedInIconWithText />
         </div>
+       </div>
         <div className="h-screen flex flex-col items-center bg-white dark:bg-primaryBgDark">
             <form className='p-4 pb-12 px-5 flex flex-col  max-w-sm  w-[90%]   text-gray-500 rounded-lg overflow-hidden bg-primaryBg dark:bg-dashboardBgDark'
             style={{
