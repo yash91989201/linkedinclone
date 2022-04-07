@@ -1,5 +1,7 @@
 import type { NextPage } from 'next'
 import { useTheme } from 'next-themes'
+import { useSession } from 'next-auth/react';
+import {  signOut} from "next-auth/react";
 // import icons
 import {FaHome} from "react-icons/fa"
 import {IoMdPeople,IoMdSunny,IoIosMoon} from "react-icons/io"
@@ -12,6 +14,7 @@ import LinkedInLogo from "../../public/assets/linkedin_icon.svg"
 
 const Header:NextPage = () => {
   const {theme,setTheme}=useTheme()
+  const {data}=useSession()
   const handleTheme=(toggleValue:any)=>{
     switch(toggleValue){
       case "on":{
@@ -40,8 +43,8 @@ const Header:NextPage = () => {
       align-items: center;
       justify-content: space-between;
       position: relative;
-      height: 16px;
-      width: 32px;
+      height: 12px;
+      width: 24px;
       transform: scale(1.5);
     }
     
@@ -49,14 +52,14 @@ const Header:NextPage = () => {
       background-color: #f3f2ef;
       border-radius: 50%;
       position: absolute;
-      height: 16px;
-      width: 16px;
+      height: 12px;
+      width: 12px;
       transform: translateX(0px);
       transition: transform 0.2s linear;
     }
     
     .checkbox:checked + .label .ball {
-      transform: translateX(16px);
+      transform: translateX(12px);
     }
     }
     `}</style>
@@ -78,10 +81,10 @@ const Header:NextPage = () => {
         <p className="flex flex-col  items-center cursor-pointer"> <MdMessage/>   <span className="hidden md:inline text-sm">Messaging</span>  </p>
         <p className="flex flex-col  items-center cursor-pointer"> <MdNotifications/>  <span className="hidden md:inline text-sm">Notification</span> </p>
         <p className="hidden md:flex md:flex-col  items-center cursor-pointer"> 
-        <img className="w-5 h-5 rounded-full bg-gray-400"  src="https://media-exp1.licdn.com/dms/image/D5635AQGZJZtiOZj--Q/profile-framedphoto-shrink_100_100/0/1645788063067?e=1648868400&v=beta&t=tUAaNccGSUf63bpD889BNM8_1MvMHCmKzFBm2C3vFEo" alt="" /> 
+        <img className="w-5 h-5 rounded-full bg-gray-400"  src={`https://avatars.dicebear.com/api/adventurer-neutral/${data?.userName}.svg`} alt="" /> 
         <span className="text-sm">Me</span>  </p>
         <p className="hidden md:flex md:flex-col  items-center cursor-pointer"> <CgMenuGridR/>  <span className="hidden md:inline text-sm">Work</span> </p>
-        <div className="relative pr-3 cursor-pointer">
+        <div className="relative  cursor-pointer">
           <input type="checkbox" className="checkbox" id="chk" onClick={(e:any)=>handleTheme(e.target.value)} />
           <label className="label" htmlFor="chk">
               <IoIosMoon style={{marginLeft:"4px",fontSize:"8px",color:"#f1c40f"}} />
@@ -89,6 +92,7 @@ const Header:NextPage = () => {
             <div className="ball"></div>
           </label>
         </div>
+        <button className="text-xs  p-2 md:py-3 md:px-4 bg-blue-600 rounded-full text-white" onClick={()=>signOut()}>Sign Out</button>
       </div>
     </div>
    </div>

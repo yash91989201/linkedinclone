@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 // importing icons
 import {AiFillInfoCircle} from "react-icons/ai"
 
-const News = () => {
+const News:NextPage = () => {
   return (
     <div className="lg:w-80 hidden xl:block ">
         {/* linkedin news */}
