@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 
 import Head from 'next/head'
@@ -8,10 +9,12 @@ import Header from '../components/Home/Header'
 import ValueProposition from '../components/Home/ValueProposition'
 
 const Home: NextPage = () => {
-  const {status}=useSession()
+  const router = useRouter()
+  const { status } = useSession()
 
-  if(status === "authenticated")
-  window.location.replace(`${window.location.origin}/dashboard`)
+  if (status === "authenticated")
+    router.push('/dashboard')
+
   return (
     <div className="bg-primaryBg dark:bg-primaryBgDark">
       <Head>
@@ -22,7 +25,7 @@ const Home: NextPage = () => {
       <Header />
       <ValueProposition />
     </div>
-  ) 
+  )
 }
 
 export default Home
