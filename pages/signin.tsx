@@ -88,7 +88,10 @@ const signin: NextPage = () => {
                     my-2 py-3 w-full rounded-full 
                     flex justify-center items-center 
                     text-gray-600 font-semibold border-gray-600 
-                    border hover:bg-primaryBg"
+                    border hover:bg-primaryBg
+                    disabled:cursor-not-allowed
+                    "
+            disabled
           >
             <FcGoogle style={{ margin: "0 16px", fontSize: "24px" }} />
             Sign in with Google

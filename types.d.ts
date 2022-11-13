@@ -5,6 +5,7 @@ interface DbConnectionDataType {
 
 // Type for PostData
 interface PostDataType {
+  id: string;
   userId: string;
   userName: string;
   userEmail: string;
